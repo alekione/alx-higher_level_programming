@@ -2,14 +2,12 @@
 import random
 number = random.randint(-10000, 10000)
 if number < 0:
-    last2 = ((number * -1) % 10) * -1
-    last = last2
+    last = ((number * -1) % 10) * -1
 else:
     last = number % 10
-    last2 = last
-if last2 <= 5 and last2 != 0:
+if last <= 5 and last != 0:
     msg = "is less than 6 and not 0"
-elif last2 > 5:
+elif last > 5:
     msg = "is greater than 5"
 else:
     msg = "is zero"
