@@ -1,5 +1,5 @@
 #!/bin/bash
-python3 -m $(basename $PYFILE .py)
-mv ./__pycache__/*$(basename $PYFILE .py)* $(basename $PYFILE .py).pyc
-cp ./__pycache__/$(basename $PYFLE .py).pyc $PWD
-rm $PWD/__pycache__/*$(basename $PYFILE .py)*
+python3 -m py_compile $PYFILE
+mv __pycache__/*.pyc ./$PYFILE'c'
+chmod +x $PYFILE'c'
+rmdir __pycache__
