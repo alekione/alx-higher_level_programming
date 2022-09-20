@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-for i in range(100):
+for i in range(1, 100):
     if (i == 89):
         print("{:d}".format(i))
         break
