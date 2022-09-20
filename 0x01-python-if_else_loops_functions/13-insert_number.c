@@ -24,6 +24,12 @@ listint_t *insert_node(listint_t **head, int number)
 		*head = ptr;
 		return (*head);
 	}
+	if (current->n >= number)
+	{
+		ptr->next = *head;
+		*head = ptr;
+		return (ptr);
+	}
 	while (current->next != NULL)
 	{
 		if (current->next->n >= number)
