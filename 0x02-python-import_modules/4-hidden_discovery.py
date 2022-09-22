@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import hidden_4
-    import sys
-    print(dir())
+    for i in dir(hidden_4):
+        if i[2] != "_":
+            print("{}".format(s))
