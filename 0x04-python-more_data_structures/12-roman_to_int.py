@@ -10,7 +10,8 @@ def roman_to_int(roman_string):
             'D': 500,
             'M': 1000
                             }
-    if roman_string is None or len(roman_string) == 0:
+    if roman_string is None or type(roman_string) != str\
+            or len(roman_string) == 0:
         return 0
     i = 0
     total = 0
