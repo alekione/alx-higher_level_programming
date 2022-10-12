@@ -3,7 +3,7 @@
 
 
 class Square:
-    """ A class object 
+    """ A class object
     Attributes:
     __size(int) - size of the square
     """

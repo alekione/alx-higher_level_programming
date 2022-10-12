@@ -3,6 +3,8 @@
 
 
 class Square:
+    """ object attributes """
+
     def __init__(self, size=0):
         """ initialize object attributes:
         __size(int) - size of the square
