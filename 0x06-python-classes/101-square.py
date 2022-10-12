@@ -70,18 +70,8 @@ class Square:
         """ converts the square drawing into a string
         when print function is called
         """
-        string = ""
         if self.__size == 0:
-            string += "\n"
-            return string
-        if self.__position[1] > 0:
-            for h in range(0, self.__position[1]):
-                string += "\n"
-        for i in range(0, self.__size):
-            if self.__position[0] > 0:
-                for j in range(0, self.__position[0]):
-                    string += " "
-            for k in range(0, self.__size):
-                string += "#"
-            string += "\n"
+            return ""
+        string = "\n" * self.position[1] + (" " * self.position[0] +
+                                            "#" * self.size + "\n") * self.size
         return string
