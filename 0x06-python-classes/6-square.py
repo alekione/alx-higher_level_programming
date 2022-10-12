@@ -52,12 +52,12 @@ class Square:
 
     def my_print(self):
         """ prints the square wit  '#' """
-        if self.__position[1] > 0:
-            for h in range(0, self.__position[1]):
-                print()
         if self.__size == 0:
             print()
             return
+        if self.__position[1] > 0:
+            for h in range(0, self.__position[1]):
+                print()
         for i in range(0, self.__size):
             if self.__position[0] > 0:
                 for j in range(0, self.__position[0]):
