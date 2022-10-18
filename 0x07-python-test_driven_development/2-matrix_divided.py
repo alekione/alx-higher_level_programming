@@ -23,6 +23,9 @@ def matrix_divided(matrix, div):
         return list(matrix)
     new_matrix = []
     for item in matrix:
+        if type(item) != list:
+            raise TypeError("matrix must be a matrix" +
+                    " (list of lists) of integers/floats")
         if len(item) != length:
             raise TypeError("Each row of the matrix must have the same size")
         inner = []

@@ -1,0 +1,26 @@
+3-say_my_name module
+
+import the function
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
+
+Tests:
+
+Using one name:
+	>>> say_my_name("Alex")
+	My name is Alex 
+
+Using two names
+	>>> say_my_name("Alex", "MN")
+	My name is Alex MN
+
+Using other data types
+	>>> say_my_name("Alex", 34)
+	Traceback (most recent call last):
+	...
+	TypeError: last_name must be a string
+
+using more than 2 arguments
+	>>> say_my_name("Alex", "MN", "Kenya")
+	Traceback (most recent call last):
+	...
+	TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given

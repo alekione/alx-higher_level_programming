@@ -1,0 +1,38 @@
+0-add_integer modue
+
+importing the module function
+	>>> add_integer = __import__("0-add_integer").add_integer
+
+Tests:
+
+Single integer
+	>>> add_integer(10)
+	108
+
+Two integers
+	>>> add_integer(10, 20)
+	30
+
+A string and an integer
+	>>> add_integer("set", 10)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
+
+An integer and a string
+	>>> add_integer(10, "set")
+	Traceback (most recent call last):
+	...
+	TypeError: b must be an integer
+
+Passing no argument
+	>>> add_integer()
+	Traceback (most recent call last):
+	...
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+A list and an int
+	>>> add_integer([1], 5)
+	Traceback (most recent call last):
+	...
+	TypeError: a must be an integer
