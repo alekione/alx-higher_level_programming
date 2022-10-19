@@ -25,7 +25,7 @@ def matrix_divided(matrix, div):
     for item in matrix:
         if type(item) != list:
             raise TypeError("matrix must be a matrix" +
-                    " (list of lists) of integers/floats")
+                            " (list of lists) of integers/floats")
         if len(item) != length:
             raise TypeError("Each row of the matrix must have the same size")
         inner = []
