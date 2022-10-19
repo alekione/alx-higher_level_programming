@@ -88,6 +88,8 @@ class Rectangle:
         """ creates a rectangle object with all sides equal """
         if type(size) != int:
             raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
         return Rectangle(size, size)
 
     @staticmethod
