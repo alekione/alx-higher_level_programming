@@ -68,7 +68,7 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         rec_str = ("#" * self.__width + "\n") * self.__height
-        return rec_str
+        return rec_str[:-1]
 
     def __repr__(self):
         """ returns a canonocal string representation of the object """
