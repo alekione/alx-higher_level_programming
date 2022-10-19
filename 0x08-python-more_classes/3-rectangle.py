@@ -72,6 +72,4 @@ class Rectangle:
 
     def __repr__(self):
         """ returns a canonocal string representation of the object """
-        param = str(self.width) + ", " + str(self.__height)
-        objct = "3-rectangle.Rectangle(" + param + ")"
-        return objct
+        return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
