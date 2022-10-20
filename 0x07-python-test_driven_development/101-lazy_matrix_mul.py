@@ -39,7 +39,4 @@ def lazy_matrix_mul(m_a, m_b):
                 raise TypeError("m_b should contain only integers or floats")
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
-    a = np.array(m_a)
-    b = np.array(m_b)
-    m_res = a @ b
-    return m_res
+    return np.matmul(m_a, m_b)
