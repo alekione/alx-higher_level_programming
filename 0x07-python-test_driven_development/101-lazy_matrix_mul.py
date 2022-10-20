@@ -1,8 +1,9 @@
 #!/usr/bin/python3
-""" a module for multiplying matrixes """
+""" a module for multiplying matrixes  using numpy"""
+import numpy as np
 
 
-def matrix_mul(m_a, m_b):
+def lazy_matrix_mul(m_a, m_b):
     """ multiplies a list matrix with another list matrix
     m_a * m_b
     """
@@ -22,6 +23,9 @@ def matrix_mul(m_a, m_b):
             raise ValueError("m_a can't be empty")
         if len(item) != size:
             raise TypeError("each row of m_a must be of the same size")
+        for num in item:
+            if type(num) not in (int, float):
+                raise TypeError("m_a should contain only integers or floats")
     for item in m_b:
         if type(item) != list:
             raise TypeError("m_b must be a list of lists")
@@ -30,25 +34,12 @@ def matrix_mul(m_a, m_b):
         size = len(m_b[0])
         if len(item) != size:
             raise TypeError("each row of m_b must be of the same size")
+        for num in item:
+            if type(num) not in (int, float):
+                raise TypeError("m_b should contain only integers or floats")
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
-    m_res = []
-    for item_a in m_a:
-        inner = []
-        ind = 0
-        while ind < len(m_b[0]):
-            res = 0
-            ind_1 = 0
-            for num in item_a:
-                if type(num) not in (int, float):
-                    raise TypeError("m_a should contain only" +
-                                    " integers or floats")
-                if type(m_b[ind_1][ind]) not in (int, float):
-                    raise TypeError("m_b should contain only" +
-                                    " integers or floats")
-                res += num * m_b[ind_1][ind]
-                ind_1 += 1
-            inner.append(res)
-            ind += 1
-        m_res.append(inner)
+    a = np.array(m_a)
+    b = np.array(m_b)
+    m_res = a @ b
     return m_res
