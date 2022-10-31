@@ -72,47 +72,21 @@ class Rectangle(Base):
         """ sets a new value for y """
         self.check_val(x=0, y=value)
         self.__y = value
-
+    
     def update(self, *args, **kwargs):
-        """ updates field values """
-        i = 0
-        if args is None or len(args) == 0:
-            if kwargs is not None:
-                for item, val in kwargs.items():
-                    if item == "id":
-                        self.check_val(id=val)
-                        self.id = val
-                    if item == "width":
-                        self.check_val(width=val)
-                        self.__width = val
-                    if item == "height":
-                        self.check_val(height=val)
-                        self.__height = val
-                    if item == "y":
-                        self.check_val(y=val)
-                        self.__y = val
-                    if item == "x":
-                        self.check_val(x=val)
-                        self.__x = val
-        if args is None or len(args) == 0:
+        """updates the value of the instance
+        """
+        arr = ["id", "width", "height", "x", "y"]
+        if args is not None and len(args) > len(arr):
             return
-        for item in args:
-            if i == 0:
-                self.check_val(id=item)
-                self.id = item
-            if i == 1:
-                self.check_val(width=item)
-                self.__width = item
-            if i == 2:
-                self.check_val(height=item)
-                self.__height = item
-            if i == 3:
-                self.check_val(x=item)
-                self.__x = item
-            if i == 4:
-                self.check_val(y=item)
-                self.__y = item
-            i += 1
+        if args is not None and len(args) != 0:
+            for i in range(len(args)):
+                setattr(self, arr[i], args[i])
+            return
+        if kwargs is not None:
+            for key, value in kwargs.items():
+                if key in arr:
+                    setattr(self, key, value)
 
     def area(self):
         """ returns the area of the rectangle """
@@ -131,3 +105,8 @@ class Rectangle(Base):
         height = self.__height
         width = self.__width
         return f"[Rectangle] ({id}) {self.__x}/{self.__y} - {width}/{height}"
+
+    def to_dictionary(self):
+        """ creates a dictionary rep of the object """
+        a_lst = ["id", "width", "height", "x", "y"]
+        return {a_lst[i]: getattr(self, a_lst[i]) for i in range(len(a_lst))}
