@@ -15,6 +15,7 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """ returns the JSON string representation of list_dictionaries """
@@ -60,13 +61,14 @@ class Base:
         lst = []
         try:
             fp = open(filename, mode="r", encoding="UTF8")
+            fp.close()
         except Exception:
             return []
         else:
+            fp = open(filename, mode="r", encoding="UTF8")
             js = Base.from_json_string(fp.read())
             for item in js:
                 obj = cls.create(item)
                 lst.append(obj)
-        finally:
             fp.close()
         return lst

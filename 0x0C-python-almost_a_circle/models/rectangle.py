@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """ Initialization of a Rectangle class """
+
 from models.base import Base
 
 
@@ -14,7 +15,7 @@ class Rectangle(Base):
                 raise TypeError(f"{item} must be an integer")
             if (item == "x" or item == "y" or item == "id") and val >= 0:
                 continue
-            if val < 0:
+            if val <= 0:
                 if item == "x" or item == "y" or item == "id":
                     raise ValueError(f"{item} must be >= 0")
                 else:
@@ -37,7 +38,7 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         """ sets a new value to the field width """
-        self.check_val(width=value, height=0)
+        self.check_val(width=value)
         self.__width = value
 
     @property
@@ -48,7 +49,7 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         """ changes the value of height """
-        self.check_val(width=0, height=value)
+        self.check_val(height=value)
         self.__height = value
 
     @property
@@ -72,7 +73,7 @@ class Rectangle(Base):
         """ sets a new value for y """
         self.check_val(x=0, y=value)
         self.__y = value
-    
+
     def update(self, *args, **kwargs):
         """updates the value of the instance
         """
