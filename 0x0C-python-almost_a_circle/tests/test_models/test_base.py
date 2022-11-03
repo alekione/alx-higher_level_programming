@@ -139,12 +139,6 @@ class TestBase(TestCase):
         if os.path.exists("Square.json"):
             os.remove("Square.json")
 
-        rect_output = Rectangle.load_from_file()
-        self.assertEqual(rect_output, [])
-
-        square_output = Square.load_from_file()
-        self.assertEqual(square_output, [])
-
         warn = "Base.load_from_file() takes 1 positional argument but 2 were given"
 
         with self.assertRaises(TypeError) as msg:
@@ -163,3 +157,7 @@ class TestBase(TestCase):
             "Base.create() takes 1 positional argument but 2 were given",
             str(msg.exception)
         )
+
+
+if __name__ == "__main__":
+    unittest.main()

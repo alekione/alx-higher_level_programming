@@ -4,8 +4,8 @@ A module that test differents behaviors
 of the Base class
 """
 import unittest
-from models.base import Base
 from models.rectangle import Rectangle
+from models.base import Base
 
 
 class TestRectangle(unittest.TestCase):
@@ -123,3 +123,6 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle(5, 9, 5, -4798576398576)
             raise ValueError()
+
+if __name__ == "__main__":
+    unittest.main()
